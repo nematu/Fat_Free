@@ -2,9 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Fat_Free</title>
+    <title>{{@title}}</title>
 </head>
 <body>
-<h1>Fat Free Home page</h1>
+<h1>{{@title}}</h1>
+<h1>{{@username}} is logged in with {{@password}}</h1>
+<p>Temperature</p>
+<p>Fahrenheit temp: {{@ftemp}}</p>
+<p>Celsius temp: {{ round(@ftemp-32) * (5.0/9.0)}}</p>
+<h2> I like {{@color}}</h2>
+<h3>circumference of a circle with {{@radius}} is {{(2* 3.14 *@radius)}}</h3>
+
+    <h4>Fruits</h4>
+<ul>
+    <repeat group = "{{@fruits}}" value="{{@fruit}}">
+
+        <li>{{trim(@fruit)}}</li>
+    </repeat>
+
+</ul>
+
+<h3>salaries</h3>
+<repeat group="{{@salaries}}" key = "{{@name}}" value="{{@salary}}">
+<p>{{@name}} earns {{@salary}}</p>
+    <check if="{{ @salary > 250000 }}">
+        <p> Wow, you're rich !</p>
+    </check>
+</repeat>
+    <h3>Conditions</h3>
+    <check if="{{@num == 5}}">
+        <true>
+        <p>yes</p>
+        </true>
+        <false>
+            <p>NO</p>
+        </false>
+    </check>
+
+<check if="{{ $preferredCustomer}}">
+    <p>you get a discount</p>
+</check>
 </body>
 </html>
